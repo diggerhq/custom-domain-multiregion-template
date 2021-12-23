@@ -1,0 +1,1 @@
+This template is for validating a custom domain in multiple regions by creating an ACM certificate in these regions and outputing the CNAME records required for validation.
