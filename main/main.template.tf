@@ -11,7 +11,7 @@ terraform {
 
   provider "aws" {
     version = "= 3.45.0"
-    region  = var.region
+    region  = "{{region}}"
     # profile = var.aws_profile
     access_key = var.aws_key
     secret_key = var.aws_secret
