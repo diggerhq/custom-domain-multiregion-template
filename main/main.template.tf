@@ -9,7 +9,8 @@ terraform {
 
 {% for region in environment_config.regions %}
 
-  provider "aws-{{region}}" {
+  provider "aws" {
+    alias = "{{region}}"
     version = "= 3.45.0"
     region  = "{{region}}"
     # profile = var.aws_profile
@@ -18,7 +19,7 @@ terraform {
   }
 
   resource "aws_acm_certificate" "cert_{{region}}" {
-    provider = "aws-{{region}}"
+    provider = aws.{{region}}
     domain_name       = var.certificate_domain
     validation_method = "DNS"
 
