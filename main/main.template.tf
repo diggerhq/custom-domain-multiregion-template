@@ -31,15 +31,15 @@ terraform {
 {% endfor %}
 
 output "acm_certificate_record_type" {
-  value = aws_acm_certificate.cert_{{environment_config.regions[0]}}.domain_validation_options[0].resource_record_type
+  value = tolist(aws_acm_certificate.cert_{{environment_config.regions[0]}}.domain_validation_options)[0].resource_record_type
 }
 
 output "acm_certificate_record_name" {
-  value = aws_acm_certificate.cert_{{environment_config.regions[0]}}.domain_validation_options[0].resource_record_name
+  value = tolist(aws_acm_certificate.cert_{{environment_config.regions[0]}}.domain_validation_options)[0].resource_record_name
 }
 
 output "acm_certificate_record_value" {
-  value = aws_acm_certificate.cert_{{environment_config.regions[0]}}.domain_validation_options[0].resource_record_value
+  value = tolist(aws_acm_certificate.cert_{{environment_config.regions[0]}}.domain_validation_options)[0].resource_record_value
 }
 
 output "acm_certificate_arn" {
