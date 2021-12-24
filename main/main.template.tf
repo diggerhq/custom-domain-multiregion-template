@@ -17,8 +17,8 @@ terraform {
     secret_key = var.aws_secret
   }
 
-  resource "aws_acm_certificate" "cert_{{environment_config.region}}" {
-    provider = "aws_{{environment_config.region}}"
+  resource "aws_acm_certificate" "cert_{{region}}" {
+    provider = "aws_{{region}}"
     domain_name       = var.certificate_domain
     validation_method = "DNS"
 
