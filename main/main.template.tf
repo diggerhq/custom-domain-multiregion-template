@@ -28,19 +28,19 @@ module "acm_{{region}}" {
   }
 }
 
-output "acm_certificate_record_type" {
+output "acm_certificate_record_type_{{region}}" {
   value = module.acm_{{region}}.acm_certificate_record_type
 }
 
-output "acm_certificate_record_name" {
+output "acm_certificate_record_name_{{region}}" {
   value = module.acm_{{region}}.acm_certificate_record_name
 }
 
-output "acm_certificate_record_value" {
+output "acm_certificate_record_value_{{region}}" {
   value = module.acm_{{region}}.acm_certificate_record_value
 }
 
-output "acm_certificate_arn" {
+output "acm_certificate_arn_{{region}}" {
   value = module.acm_{{region}}.acm_certificate_arn
 }
 
