@@ -26,6 +26,10 @@ module "acm_{{region}}" {
   providers = {
     aws = aws.{{region}}
   }
+
+  depends_on  = [
+    module.acm_{{loop.previtem}}
+  ]
 }
 
 output "acm_certificate_record_type_{{region}}" {
