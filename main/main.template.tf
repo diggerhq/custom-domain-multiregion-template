@@ -22,22 +22,26 @@ terraform {
     provider = aws.{{region}}
     domain_name       = var.certificate_domain
     validation_method = "DNS"
+
+    lifecycle {
+      create_before_destroy = true
+    }
   }
 
-  # output "acm_certificate_record_type_{{region}}" {
-  #   value = tolist(aws_acm_certificate.cert_{{region}}.domain_validation_options)[0].resource_record_type
-  # }
+  output "acm_certificate_record_type_{{region}}" {
+    value = tolist(aws_acm_certificate.cert_{{region}}.domain_validation_options)[0].resource_record_type
+  }
 
-  # output "acm_certificate_record_name_{{region}}" {
-  #   value = tolist(aws_acm_certificate.cert_{{region}}.domain_validation_options)[0].resource_record_name
-  # }
+  output "acm_certificate_record_name_{{region}}" {
+    value = tolist(aws_acm_certificate.cert_{{region}}.domain_validation_options)[0].resource_record_name
+  }
 
-  # output "acm_certificate_record_value_{{region}}" {
-  #   value = tolist(aws_acm_certificate.cert_{{region}}.domain_validation_options)[0].resource_record_value
-  # }
+  output "acm_certificate_record_value_{{region}}" {
+    value = tolist(aws_acm_certificate.cert_{{region}}.domain_validation_options)[0].resource_record_value
+  }
 
-  # output "acm_certificate_arn_{{region}}" {
-  #   value = aws_acm_certificate.cert_{{region}}.arn
-  # }
+  output "acm_certificate_arn_{{region}}" {
+    value = aws_acm_certificate.cert_{{region}}.arn
+  }
 
 {% endfor %}
