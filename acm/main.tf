@@ -1,8 +1,4 @@
 
-provider "aws" {
-  alias = "aws"
-}
-
 resource "aws_acm_certificate" "cert" {
   domain_name       = var.certificate_domain
   validation_method = "DNS"
