@@ -13,10 +13,13 @@ terraform {
     alias = "{{region}}"
     version = "= 3.70.0"
     region  = "{{region}}"
-    # profile = var.aws_profile
     access_key = var.aws_key
     secret_key = var.aws_secret
   }
+
+{% endfor %}
+
+{% for region in environment_config.regions %}
 
   resource "aws_acm_certificate" "cert_{{region}}" {
     provider = aws.{{region}}
