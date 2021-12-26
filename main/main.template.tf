@@ -25,7 +25,7 @@ module "acm_{{region}}" {
   source = "../acm"
   certificate_domain = var.certificate_domain
   providers = {
-    aws = "aws.{{region}}"
+    aws = aws.{{region}}
   }
 }
 
