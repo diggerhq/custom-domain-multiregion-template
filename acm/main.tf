@@ -1,4 +1,9 @@
 
+variable "certificate_domain" {
+  type = string
+  description = "the domain to verify"
+}
+
 resource "aws_acm_certificate" "cert" {
   domain_name       = var.certificate_domain
   validation_method = "DNS"
